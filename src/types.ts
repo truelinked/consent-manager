@@ -95,4 +95,8 @@ export interface ConsentManagerProps {
   customCategories?: CustomCategories
   defaultDestinationBehavior?: DefaultDestinationBehavior
   cdnHost?: string
+  allowAll?: boolean
+  denyAll?: boolean
+  disableChooseNo?: boolean
+  showConsentByChoice?: boolean
 }

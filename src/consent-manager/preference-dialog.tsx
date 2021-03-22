@@ -72,6 +72,7 @@ interface PreferenceDialogProps {
   preferences: CategoryPreferences
   title: React.ReactNode
   content: React.ReactNode
+  disableChooseNo?: boolean
 }
 
 export default class PreferenceDialog extends PureComponent<PreferenceDialogProps, {}> {
@@ -97,7 +98,8 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
       destinations,
       title,
       content,
-      preferences
+      preferences,
+      disableChooseNo
     } = this.props
     const buttons = (
       <div>
@@ -156,6 +158,7 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
                           onChange={this.handleChange}
                           aria-label="Disallow functional tracking"
                           required
+                          disabled={disableChooseNo}
                         />{' '}
                         No
                       </label>
@@ -198,6 +201,7 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
                           onChange={this.handleChange}
                           aria-label="Disallow marketing and analytics tracking"
                           required
+                          disabled={disableChooseNo}
                         />{' '}
                         No
                       </label>
@@ -241,6 +245,7 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
                           onChange={this.handleChange}
                           aria-label="Disallow advertising tracking"
                           required
+                          disabled={disableChooseNo}
                         />{' '}
                         No
                       </label>
@@ -289,6 +294,7 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
                             onChange={this.handleChange}
                             aria-label={`Disallow "${categoryName}" tracking`}
                             required
+                            disabled={disableChooseNo}
                           />{' '}
                           No
                         </label>

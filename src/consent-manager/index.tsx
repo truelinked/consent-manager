@@ -21,11 +21,14 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
     cookieDomain: undefined,
     customCategories: undefined,
     bannerTextColor: '#fff',
-    bannerSubContent: 'You can change your preferences at any time.',
     bannerBackgroundColor: '#1f4160',
     preferencesDialogTitle: 'Website Data Collection Preferences',
     cancelDialogTitle: 'Are you sure you want to cancel?',
-    defaultDestinationBehavior: 'disable'
+    defaultDestinationBehavior: 'disable',
+    allowAll: false,
+    denyAll: false,
+    disableChooseNo: false,
+    showConsentByChoice: false
   }
 
   render() {
@@ -36,7 +39,6 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
       implyConsentOnInteraction,
       cookieDomain,
       bannerContent,
-      bannerSubContent,
       bannerTextColor,
       bannerBackgroundColor,
       preferencesDialogTitle,
@@ -46,7 +48,11 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
       customCategories,
       defaultDestinationBehavior,
       cdnHost,
-      onError
+      onError,
+      allowAll,
+      denyAll,
+      disableChooseNo,
+      showConsentByChoice
     } = this.props
 
     return (
@@ -76,6 +82,10 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
         }) => {
           return (
             <Container
+              allowAll={allowAll}
+              denyAll={denyAll}
+              disableChooseNo={disableChooseNo}
+              showConsentByChoice={showConsentByChoice}
               customCategories={customCategories}
               destinations={destinations}
               newDestinations={newDestinations}
@@ -89,7 +99,6 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
                 implyConsentOnInteraction ?? ConsentManager.defaultProps.implyConsentOnInteraction
               }
               bannerContent={bannerContent}
-              bannerSubContent={bannerSubContent}
               bannerTextColor={bannerTextColor || ConsentManager.defaultProps.bannerTextColor}
               bannerBackgroundColor={
                 bannerBackgroundColor || ConsentManager.defaultProps.bannerBackgroundColor
