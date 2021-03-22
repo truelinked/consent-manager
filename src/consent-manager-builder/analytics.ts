@@ -75,7 +75,7 @@ export default function conditionallyLoadAnalytics({
   // the user's new preferences can take affect
   if (wd.analytics && wd.analytics.initialized) {
     if (shouldReload) {
-      window.location.reload()
+      // window.location.reload()
     }
     return
   }
