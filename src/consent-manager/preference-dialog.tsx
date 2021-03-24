@@ -278,7 +278,7 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
                             type="radio"
                             name={categoryName}
                             value="true"
-                            checked={preferences[categoryName] === true}
+                            checked={preferences[categoryName] !== false}
                             onChange={this.handleChange}
                             aria-label={`Allow "${categoryName}" tracking`}
                             required
