@@ -221,50 +221,6 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
                       {marketingDestinations.map(d => d.name).join(', ')}
                     </td>
                   </Row>
-
-                  <Row>
-                    <InputCell>
-                      <label>
-                        <input
-                          type="radio"
-                          name="advertising"
-                          value="true"
-                          checked={advertising === true}
-                          onChange={this.handleChange}
-                          aria-label="Allow advertising tracking"
-                          required
-                        />{' '}
-                        Yes
-                      </label>
-                      <label>
-                        <input
-                          type="radio"
-                          name="advertising"
-                          value="false"
-                          checked={advertising === false}
-                          onChange={this.handleChange}
-                          aria-label="Disallow advertising tracking"
-                          required
-                          disabled={disableChooseNo}
-                        />{' '}
-                        No
-                      </label>
-                    </InputCell>
-                    <RowHeading scope="row">Advertising</RowHeading>
-                    <td>
-                      <p>
-                        To personalize and measure the effectiveness of advertising on our site and
-                        other websites.
-                      </p>
-                      <p className={hideOnMobile}>
-                        For example, we may serve you a personalized ad based on the pages you visit
-                        on our site.
-                      </p>
-                    </td>
-                    <td className={hideOnMobile}>
-                      {advertisingDestinations.map(d => d.name).join(', ')}
-                    </td>
-                  </Row>
                 </>
               )}
 
