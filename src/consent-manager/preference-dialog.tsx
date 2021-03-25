@@ -142,7 +142,7 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
                           type="radio"
                           name="functional"
                           value="true"
-                          checked={functional === true}
+                          checked={functional !== false}
                           onChange={this.handleChange}
                           aria-label="Allow functional tracking"
                           required
@@ -185,7 +185,7 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
                           type="radio"
                           name="marketingAndAnalytics"
                           value="true"
-                          checked={marketingAndAnalytics === true}
+                          checked={marketingAndAnalytics !== false}
                           onChange={this.handleChange}
                           aria-label="Allow marketing and analytics tracking"
                           required
