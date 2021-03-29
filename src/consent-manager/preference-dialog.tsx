@@ -296,7 +296,18 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
     // Safe guard against browsers that don't prevent the
     // submission of invalid forms (Safari < 10.1)
     if (!customCategories && (marketingAndAnalytics === null || functional === null)) {
-      return
+      this.handleChange({
+        target: {
+          name: 'functional',
+          value: 'true'
+        }
+      })
+      this.handleChange({
+        target: {
+          name: 'marketingAndAnalytics',
+          value: 'true'
+        }
+      })
     }
 
     // Safe guard against custom categories being null
