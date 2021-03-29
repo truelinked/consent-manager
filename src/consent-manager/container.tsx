@@ -207,7 +207,6 @@ const Container: React.FC<ContainerProps> = props => {
           advertisingDestinations={advertisingDestinations}
           functionalDestinations={functionalDestinations}
           marketingAndAnalytics={props.preferences.marketingAndAnalytics}
-          advertising={props.preferences.advertising}
           functional={props.preferences.functional}
           title={props.preferencesDialogTitle}
           content={props.preferencesDialogContent}

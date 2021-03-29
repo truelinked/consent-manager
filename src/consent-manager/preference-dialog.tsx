@@ -65,7 +65,6 @@ interface PreferenceDialogProps {
   advertisingDestinations: Destination[]
   functionalDestinations: Destination[]
   marketingAndAnalytics?: boolean | null
-  advertising?: boolean | null
   functional?: boolean | null
   customCategories?: CustomCategories
   destinations: Destination[]
@@ -80,7 +79,6 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
 
   static defaultProps = {
     marketingAndAnalytics: null,
-    advertising: null,
     functional: null
   }
 
@@ -89,10 +87,8 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
       innerRef,
       onCancel,
       marketingDestinations,
-      advertisingDestinations,
       functionalDestinations,
       marketingAndAnalytics,
-      advertising,
       functional,
       customCategories,
       destinations,
@@ -295,21 +291,11 @@ export default class PreferenceDialog extends PureComponent<PreferenceDialogProp
   }
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const {
-      onSave,
-      preferences,
-      marketingAndAnalytics,
-      advertising,
-      functional,
-      customCategories
-    } = this.props
+    const { onSave, preferences, marketingAndAnalytics, functional, customCategories } = this.props
     e.preventDefault()
     // Safe guard against browsers that don't prevent the
     // submission of invalid forms (Safari < 10.1)
-    if (
-      !customCategories &&
-      (marketingAndAnalytics === null || advertising === null || functional === null)
-    ) {
+    if (!customCategories && (marketingAndAnalytics === null || functional === null)) {
       return
     }
 
